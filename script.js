@@ -2,10 +2,10 @@
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var lowercase = "abcdefghijklmnopqrstuvwxyz";
-var specialChar = "!@#$%^&*()-=+?.<>";
-var numbers = "0123456789";
+var CharUppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var CharLowercase = "abcdefghijklmnopqrstuvwxyz";
+var CharSpecialChar = "!@#$%^&*()-=+?.<>";
+var CharNumbers = "0123456789";
 
 function writePassword() {
 
@@ -21,43 +21,45 @@ function generatePassword() {
   var passwordLength = prompt("Length of Password?");
   alert("Number of characters:" +passwordLength);
   var passwordSpecial = confirm("Special characters? Okay for YES Cancel for No");
+  alert("Special characters used")
   var passwordcase = confirm("Captial letters? Okay for Yes Cancel for No")
+  alert("captial letters used")
 
   if (passwordSpecial === true && passwordcase === true) {
     var length = passwordLength,
-     uppercase = specialChar
+     CharUppercase = CharSpecialChar
     passwordText = "";
-    for (var i = 0, c = charset.length; i < length; ++i) {
-      passwordText += charset.charAt(Math.floor(Math.random() * c));
+    for (var i = 0, i = char.length; i < length; ++i) {
+      passwordText += charset.charAt(Math.floor(Math.random() * i));
 
     }
     return passwordText;
   } 
   else if (passwordSpecial === false && passwordcase === true) {
     var length = passwordLength,
-      numbers = uppercase
+      CharNumbers = CharUppercase
     passwordText = "";
-    for (var i = 0, c = charset.length; i < length; ++i) {
-      passwordText += charset.charAt(Math.floor(Math.random() * c));
+    for (var i = 0, i = char.length; i < length; ++i) {
+      passwordText += charset.charAt(Math.floor(Math.random() * i));
 
     }
     return passwordText;
   }
   else if (passwordSpecial === false && passwordcase === false) {
     var length = passwordLength,
-      lowercase = numbers
+      CharLowercase = CharNumbers
     passwordText = "";
-    for (var i = 0, c = charset.length; i < length; ++i) {
-      passwordText += charset.charAt(Math.floor(Math.random() * c));
+    for (var i = 0, i = char.length; i < length; ++i) {
+      passwordText += charset.charAt(Math.floor(Math.random() * i));
     }
     return passwordText;
   }
   else if (passwordSpecial === true && passwordcase === false) {
     var length = passwordLength,
-      specialChar = lowercase
+      CharSpecialChar = CharLowercase
     passwordText = "";
-    for (var i = 0, c = charset.length; i < length; ++i) {
-      passwordText += charset.charAt(Math.floor(Math.random() * c));
+    for (var i = 0, i = char.length; i < length; ++i) {
+      passwordText += charset.charAt(Math.floor(Math.random() * i));
     }
     return passwordText;
   }
